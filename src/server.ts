@@ -17,6 +17,47 @@ const angularApp = new AngularNodeAppEngine();
 app.use(express.json());
 
 /**
+ * 🔎 CONTACT DIAGNOSTICS
+ * Reports whether the Telegram env vars reached the container and if the bot
+ * token is valid. Never exposes the token itself.
+ */
+app.get('/api/contact', async (_req, res) => {
+  const token = process.env['TELEGRAM_BOT_TOKEN'];
+  const chatId = process.env['TELEGRAM_CHAT_ID'];
+
+  const result: {
+    telegramConfigured: boolean;
+    chatIdSet: boolean;
+    botValid: boolean;
+    botUsername: string | null;
+    telegramError?: string;
+  } = {
+    telegramConfigured: Boolean(token && chatId),
+    chatIdSet: Boolean(chatId),
+    botValid: false,
+    botUsername: null
+  };
+
+  if (token) {
+    try {
+      const response = await fetch(`https://api.telegram.org/bot${token}/getMe`, {
+        signal: AbortSignal.timeout(4000)
+      });
+      const data = await response.json();
+      result.botValid = Boolean(data.ok);
+      result.botUsername = data.result?.username ?? null;
+      if (!data.ok) {
+        result.telegramError = data.description ?? 'unknown';
+      }
+    } catch {
+      result.telegramError = 'network';
+    }
+  }
+
+  res.json(result);
+});
+
+/**
  * 🔒 SECURE TELEGRAM PROXY API
  * Reads bot token and chat id from ENVIRONMENT VARIABLES (Docker)
  */

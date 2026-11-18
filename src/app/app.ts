@@ -65,6 +65,7 @@ export class App implements OnInit {
   };
   isSending = signal(false);
   sentSuccess = signal(false);
+  sendError = signal(false);
   emailCopied = signal(false);
 
   // Content: structure lives here, copy lives in public/i18n/*.json
@@ -128,7 +129,7 @@ export class App implements OnInit {
       summaryKey: 'PROJECTS.NUTRINGEST.SUMMARY',
       url: 'https://nutringest.quanticarch.com/',
       image: 'projects/nutringest.webp',
-      tags: ['Nuxt 3', 'Vue 3', 'TypeScript', 'Supabase', 'PostgreSQL', 'Docker']
+      tags: ['Next.js', 'Nuxt 3', 'NestJS', 'TypeScript', 'Supabase', 'PostgreSQL', 'Docker']
     },
     {
       name: 'Socius VE',
@@ -136,7 +137,7 @@ export class App implements OnInit {
       summaryKey: 'PROJECTS.SOCIUS.SUMMARY',
       url: 'https://sociusvex.quanticarch.com',
       image: 'projects/socius.webp',
-      tags: ['Nuxt 3', 'Vue 3', 'Supabase', 'PostgreSQL', 'Docker', 'CI/CD']
+      tags: ['Next.js', 'Nuxt 3', 'NestJS', 'Supabase', 'PostgreSQL', 'Docker', 'CI/CD']
     }
   ];
 
@@ -178,7 +179,7 @@ export class App implements OnInit {
       items: [
         { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark' },
         { name: 'Docker', icon: 'devicon-docker-plain' },
-        { name: 'Google Cloud', icon: 'devicon-googlecloud-plain' },
+        { name: 'Kubernetes', icon: 'devicon-kubernetes-plain' },
         { name: 'Nginx', icon: 'devicon-nginx-original' },
         { name: 'Terraform', icon: 'devicon-terraform-plain' },
         { name: 'Ansible', icon: 'devicon-ansible-plain' },
@@ -269,6 +270,7 @@ export class App implements OnInit {
   async sendEmail(event?: Event) {
     if (event) event.preventDefault();
     this.isSending.set(true);
+    this.sendError.set(false);
 
     const data = {
       name: this.formData.name(),
@@ -289,9 +291,13 @@ export class App implements OnInit {
         this.formData.email.set('');
         this.formData.message.set('');
         setTimeout(() => this.sentSuccess.set(false), 5000);
+      } else {
+        console.error('Contact submission failed', response.status);
+        this.sendError.set(true);
       }
     } catch (error) {
       console.error('Error in secure submission', error);
+      this.sendError.set(true);
     } finally {
       this.isSending.set(false);
     }

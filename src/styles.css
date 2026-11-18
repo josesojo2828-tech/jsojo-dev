@@ -18,6 +18,7 @@
   --accent-solid: #2563eb;
   --accent-solid-hover: #1d4ed8;
   --accent-soft: rgba(91, 157, 255, 0.12);
+  --danger: #f87171;
 
   --border: rgba(255, 255, 255, 0.08);
   --border-strong: rgba(255, 255, 255, 0.16);
@@ -48,6 +49,7 @@
   --accent-solid: #1d4ed8;
   --accent-solid-hover: #1e40af;
   --accent-soft: rgba(31, 111, 235, 0.10);
+  --danger: #dc2626;
 
   --border: rgba(13, 17, 23, 0.10);
   --border-strong: rgba(13, 17, 23, 0.20);
@@ -907,6 +909,12 @@ textarea {
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--accent);
+}
+
+.form-error {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--danger);
 }
 
 /* ---------- Footer ---------- */

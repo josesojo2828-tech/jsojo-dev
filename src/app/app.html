@@ -304,6 +304,9 @@
         @if (sentSuccess()) {
           <p class="form-success" role="status">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
         }
+        @if (sendError()) {
+          <p class="form-error" role="alert">{{ 'CONTACT.FORM.ERROR' | translate }}</p>
+        }
       </form>
     </div>
   </section>

@@ -80,7 +80,7 @@
       "SUMMARY": "SaaS platform for nutritionists: clinical management, patient records and meal plans. Supabase/PostgreSQL with RLS, migrations and DevOps culture."
     },
     "SOCIUS": {
-      "SUMMARY": "Full ERP/CRM for businesses: inventory, invoicing, and accounts receivable/payable. Built with Nuxt 3 and Supabase, deployed with Docker and CI/CD."
+      "SUMMARY": "Full ERP/CRM for businesses: inventory, invoicing, and accounts receivable/payable. Built with Next.js, Nuxt 3 and NestJS on Supabase, deployed with Docker and CI/CD."
     }
   },
   "STACK": {
@@ -121,7 +121,8 @@
       "PLACEHOLDER_MESSAGE": "Tell me about the role or project you have in mind...",
       "SUBMIT": "Send message",
       "SENDING": "Sending...",
-      "SUCCESS": "Message sent. I'll reply soon."
+      "SUCCESS": "Message sent. I'll reply soon.",
+      "ERROR": "Couldn't send. Try again or reach me by email or WhatsApp."
     }
   },
   "FOOTER": {
