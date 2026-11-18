@@ -1,316 +1,328 @@
-<div class="ambient-glow"></div>
+<header class="site-header">
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Jose Sojo">
+      <span class="brand-mark">JS</span>
+      <span class="brand-name">Jose Sojo</span>
+    </a>
 
-<header id="master-nav">
-  <div class="nav-glass-container">
-    <div class="branding">
-      <span class="branding-name">JOSE SOJO</span>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#experience">{{ 'NAV.EXPERIENCE' | translate }}</a>
+      <a href="#projects">{{ 'NAV.PROJECTS' | translate }}</a>
+      <a href="#stack">{{ 'NAV.STACK' | translate }}</a>
+      <a href="#contact">{{ 'NAV.CONTACT' | translate }}</a>
+    </nav>
+
+    <div class="nav-actions">
+      <div class="lang" role="group" [attr.aria-label]="'NAV.LANG' | translate">
+        <button type="button" (click)="changeLang('es')" [class.is-active]="currentLang() === 'es'">ES</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" (click)="changeLang('en')" [class.is-active]="currentLang() === 'en'">EN</button>
+      </div>
+
+      <button type="button" class="icon-btn" (click)="toggleTheme()" [attr.aria-label]="'NAV.THEME' | translate">
+        @if (isDarkMode()) {
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+          </svg>
+        } @else {
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        }
+      </button>
+
+      <a class="btn btn-primary btn-sm" [href]="cvPath" download>{{ 'NAV.DOWNLOAD_CV' | translate }}</a>
     </div>
-    <ul class="nav-links">
-      <li><a href="#portfolio">{{ 'NAV.PROJECTS' | translate }}</a></li>
-      <li><a href="#skills">{{ 'NAV.SKILLS' | translate }}</a></li>
-      <li><a href="#contact">{{ 'NAV.CONTACT' | translate }}</a></li>
-      <li class="lang-switch">
-        <button (click)="changeLang('es')" [class.active-lang]="currentLang() === 'es'">ES</button>
-        <span class="divider">/</span>
-        <button (click)="changeLang('en')" [class.active-lang]="currentLang() === 'en'">EN</button>
-      </li>
-      <li>
-        <button (click)="toggleTheme()" class="theme-toggle" aria-label="Toggle Theme">
-          @if(isDarkMode()) {
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-          } @else {
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-          }
-        </button>
-      </li>
-    </ul>
-    <a href="#contact" class="contact-pill">{{ 'NAV.COLABORATE' | translate }}</a>
   </div>
 </header>
 
-<main class="container">
-  <!-- HERO SECTION -->
-  <section class="hero-deep">
-    <span class="hero-label">{{ 'HERO.LABEL' | translate }}</span>
-    <h1 class="hero-title">
-      {{ 'HERO.TITLE' | translate }} <br> <span>{{ 'HERO.TITLE_SPAN' | translate }}</span>
-    </h1>
-    <p class="hero-description">{{ 'HERO.DESCRIPTION' | translate }}</p>
+<main id="top">
+  <!-- HERO -->
+  <section class="hero wrap">
+    <p class="availability">
+      <span class="dot" aria-hidden="true"></span>
+      {{ 'HERO.AVAILABLE' | translate }}
+    </p>
 
-    <div class="core-spotlight">
-      <div class="spotlight-item"><i class="devicon-nestjs-plain brand-nest"></i> NEST</div>
-      <div class="spotlight-item"><i class="devicon-nextjs-plain brand-next"></i> NEXT</div>
-      <div class="spotlight-item"><i class="devicon-go-original-wordmark brand-go"></i> GO</div>
-      <div class="spotlight-item"><i class="devicon-mongodb-plain brand-mongo"></i> MONGO</div>
-      <div class="spotlight-item"><i class="devicon-postgresql-plain brand-pgsql"></i> PGSQL</div>
-      <div class="spotlight-item"><i class="devicon-kubernetes-plain brand-k8s"></i> K8S</div>
+    <h1 class="hero-name">{{ 'HERO.NAME' | translate }}</h1>
+    <p class="hero-role">{{ 'HERO.ROLE' | translate }}</p>
+    <p class="hero-lead">{{ 'HERO.HEADLINE' | translate }}</p>
+
+    <div class="hero-cta">
+      <a class="btn btn-primary" [href]="cvPath" download>{{ 'HERO.CTA_CV' | translate }}</a>
+      <a class="btn btn-ghost" href="#contact">{{ 'HERO.CTA_CONTACT' | translate }}</a>
+    </div>
+
+    <dl class="hero-facts">
+      <div class="fact">
+        <dt>{{ 'HERO.FACT_EXP_LABEL' | translate }}</dt>
+        <dd>{{ 'HERO.FACT_EXP_VALUE' | translate }}</dd>
+      </div>
+      <div class="fact">
+        <dt>{{ 'HERO.FACT_FOCUS_LABEL' | translate }}</dt>
+        <dd>{{ 'HERO.FACT_FOCUS_VALUE' | translate }}</dd>
+      </div>
+      <div class="fact">
+        <dt>{{ 'HERO.FACT_DEGREE_LABEL' | translate }}</dt>
+        <dd>{{ 'HERO.FACT_DEGREE_VALUE' | translate }}</dd>
+      </div>
+      <div class="fact">
+        <dt>{{ 'HERO.FACT_LOCATION_LABEL' | translate }}</dt>
+        <dd>{{ 'HERO.FACT_LOCATION_VALUE' | translate }}</dd>
+      </div>
+    </dl>
+  </section>
+
+  <!-- PROFILE -->
+  <section id="about" class="section wrap">
+    <div class="section-head">
+      <h2 class="section-title">{{ 'ABOUT.TITLE' | translate }}</h2>
+      <span class="section-line" aria-hidden="true"></span>
+    </div>
+    <div class="prose">
+      <p>{{ 'ABOUT.P1' | translate }}</p>
+      <p>{{ 'ABOUT.P2' | translate }}</p>
+      <p>{{ 'ABOUT.P3' | translate }}</p>
     </div>
   </section>
 
-  <!-- SKILLS SECTION -->
-  <section id="skills" style="padding: 6rem 0;">
-    <div class="section-meta">
-      <h2 class="section-title">{{ 'SKILLS.TITLE' | translate }}</h2>
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section wrap">
+    <div class="section-head">
+      <h2 class="section-title">{{ 'EXPERIENCE.TITLE' | translate }}</h2>
+      <span class="section-line" aria-hidden="true"></span>
     </div>
 
-    <div class="skills-grid-optimized">
-      <!-- FRONTEND -->
-      <div class="skill-card">
-        <h3>{{ 'SKILLS.FRONTEND' | translate }}</h3>
-        <div class="skills-subgrid">
-          <div class="skill-item"><i class="devicon-angularjs-plain brand-angular"></i> Angular</div>
-          <div class="skill-item"><i class="devicon-react-original brand-react"></i> React</div>
-          <div class="skill-item"><i class="devicon-nextjs-plain brand-next"></i> Next.js</div>
-          <div class="skill-item"><i class="devicon-typescript-plain brand-ts"></i> TS</div>
-          <div class="skill-item"><i class="devicon-tailwindcss-original brand-tailwind"></i> Tailwind</div>
-        </div>
-      </div>
-
-      <!-- BACKEND -->
-      <div class="skill-card">
-        <h3>{{ 'SKILLS.BACKEND' | translate }}</h3>
-        <div class="skills-subgrid">
-          <div class="skill-item"><i class="devicon-nestjs-plain brand-nest"></i> NestJS</div>
-          <div class="skill-item"><i class="devicon-go-original-wordmark brand-go"></i> Go Engine</div>
-          <div class="skill-item"><i class="devicon-nodejs-plain brand-node"></i> Node.js</div>
-          <div class="skill-item"><i class="devicon-python-plain brand-python"></i> Python</div>
-          <div class="skill-item"><i class="devicon-fastapi-plain brand-fastapi"></i> FastAPI</div>
-        </div>
-      </div>
-
-      <!-- MOBILE -->
-      <div class="skill-card">
-        <h3>{{ 'SKILLS.MOBILE' | translate }}</h3>
-        <div class="skills-subgrid">
-          <div class="skill-item"><i class="devicon-flutter-plain brand-flutter"></i> Flutter</div>
-          <div class="skill-item"><i class="devicon-react-original brand-react"></i> R. Native</div>
-        </div>
-      </div>
-
-      <!-- INFRA -->
-      <div class="skill-card">
-        <h3>{{ 'SKILLS.INFRA' | translate }}</h3>
-        <div class="skills-subgrid">
-          <div class="skill-item"><i class="devicon-kubernetes-plain brand-k8s"></i> K8s</div>
-          <div class="skill-item"><i class="devicon-docker-plain brand-docker"></i> Docker</div>
-          <div class="skill-item"><i class="devicon-nginx-original brand-next"></i> Nginx</div>
-          <div class="skill-item"><i class="devicon-apachekafka-original brand-kafka"></i> Kafka</div>
-          <div class="skill-item"><i class="devicon-redis-plain brand-redis"></i> Redis</div>
-          <div class="skill-item"><i class="devicon-elasticsearch-plain brand-elastic"></i> Search</div>
-        </div>
-      </div>
+    <div class="timeline">
+      @for (job of experience; track job.roleKey) {
+        <article class="job">
+          <div class="job-head">
+            <h3 class="job-role">{{ job.roleKey | translate }}</h3>
+            <span class="job-period">
+              {{ job.start }} &mdash;
+              @if (job.end) {
+                {{ job.end }}
+              } @else {
+                {{ 'EXPERIENCE.PRESENT' | translate }}
+              }
+            </span>
+          </div>
+          <p class="job-company">{{ job.company }}</p>
+          @if (job.noteKey) {
+            <p class="job-note">{{ job.noteKey | translate }}</p>
+          }
+          <ul class="job-bullets">
+            @for (bullet of job.bullets; track bullet) {
+              <li>{{ bullet | translate }}</li>
+            }
+          </ul>
+          @if (job.highlightKey) {
+            <p class="job-highlight">{{ job.highlightKey | translate }}</p>
+          }
+        </article>
+      }
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="section-meta">
-      <h2 class="section-title">{{ 'PORTFOLIO.TITLE' | translate }}</h2>
+  <!-- PROJECTS -->
+  <section id="projects" class="section wrap">
+    <div class="section-head">
+      <h2 class="section-title">{{ 'PROJECTS.TITLE' | translate }}</h2>
+      <span class="section-line" aria-hidden="true"></span>
+    </div>
+    <p class="section-sub">{{ 'PROJECTS.SUBTITLE' | translate }}</p>
+
+    <div class="projects-grid">
+      @for (project of projects; track project.name) {
+        <article class="project">
+          <div class="project-media">
+            <img [src]="project.image" [alt]="project.name" loading="lazy">
+          </div>
+          <div class="project-body">
+            <span class="project-kind">{{ project.kindKey | translate }}</span>
+            <h3 class="project-name">{{ project.name }}</h3>
+            <p class="project-summary">{{ project.summaryKey | translate }}</p>
+            <ul class="tags">
+              @for (tag of project.tags; track tag) {
+                <li>{{ tag }}</li>
+              }
+            </ul>
+            @if (project.url) {
+              <a class="project-link" [href]="project.url" target="_blank" rel="noopener">
+                {{ 'PROJECTS.VIEW' | translate }}
+                <span aria-hidden="true">&rarr;</span>
+              </a>
+            } @else {
+              <span class="project-link is-muted">{{ 'PROJECTS.PRIVATE' | translate }}</span>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- STACK -->
+  <section id="stack" class="section wrap">
+    <div class="section-head">
+      <h2 class="section-title">{{ 'STACK.TITLE' | translate }}</h2>
+      <span class="section-line" aria-hidden="true"></span>
+    </div>
+    <p class="section-sub">{{ 'STACK.SUBTITLE' | translate }}</p>
+
+    <div class="stack-grid">
+      @for (group of stackGroups; track group.titleKey) {
+        <article class="stack-card">
+          <h3 class="stack-title">{{ group.titleKey | translate }}</h3>
+          <ul class="chips">
+            @for (item of group.items; track item.name) {
+              <li class="chip">
+                @if (item.icon) {
+                  <i [class]="item.icon" aria-hidden="true"></i>
+                }
+                <span>{{ item.name }}</span>
+              </li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" class="section wrap">
+    <div class="section-head">
+      <h2 class="section-title">{{ 'EDUCATION.TITLE' | translate }}</h2>
+      <span class="section-line" aria-hidden="true"></span>
     </div>
 
-    <div class="project-grid-refined">
-      <article class="project-box">
-        <div class="box-img-area"><img src="projects/nutringest.png" alt="Nutringest"></div>
-        <div class="box-content">
-          <h3 class="box-name">{{ 'PORTFOLIO.NUTRINGEST.NAME' | translate }}</h3>
-          <p class="box-summary">{{ 'PORTFOLIO.NUTRINGEST.SUMMARY' | translate }}</p>
-          <div class="box-tags-icons">
-            <i class="devicon-nextjs-plain brand-next" title="Next.js"></i>
-            <i class="devicon-nestjs-plain brand-nest" title="NestJS"></i>
-            <i class="devicon-postgresql-plain brand-pgsql" title="PostgreSQL"></i>
-            <i class="devicon-docker-plain brand-docker" title="Docker"></i>
-          </div>
-          <a href="https://nutringest.quanticarch.com/" target="_blank" class="system-link">{{ 'PORTFOLIO.VIEW_SYSTEM' | translate }}</a>
-        </div>
+    <div class="edu-grid">
+      <article class="card edu-card">
+        <h3 class="edu-title">{{ 'EDUCATION.DEGREE' | translate }}</h3>
+        <p class="edu-school">{{ 'EDUCATION.UNIVERSITY' | translate }}</p>
+        <p class="edu-period">{{ 'EDUCATION.PERIOD' | translate }}</p>
+        <p class="edu-lang">
+          <span class="edu-label">{{ 'EDUCATION.LANG_TITLE' | translate }}</span>
+          {{ 'EDUCATION.LANG_VALUE' | translate }}
+        </p>
       </article>
 
-      <article class="project-box">
-        <div class="box-img-area"><img src="projects/cronobyke.png" alt="CronoByke"></div>
-        <div class="box-content">
-          <h3 class="box-name">{{ 'PORTFOLIO.CRONOBYKE.NAME' | translate }}</h3>
-          <p class="box-summary">{{ 'PORTFOLIO.CRONOBYKE.SUMMARY' | translate }}</p>
-          <div class="box-tags-icons">
-            <i class="devicon-nextjs-plain brand-next" title="Next.js"></i>
-            <i class="devicon-redis-plain brand-redis" title="Redis"></i>
-            <i class="devicon-nginx-original brand-next" title="Nginx"></i>
-            <i class="devicon-minio-plain brand-nest" title="MinIO"></i>
-          </div>
-          <a href="https://cronobyke.quanticarch.com/" target="_blank" class="system-link">{{ 'PORTFOLIO.VIEW_SYSTEM' | translate }}</a>
-        </div>
-      </article>
-
-      <article class="project-box">
-        <div class="box-img-area"><img src="projects/rindemas.png" alt="Rinde+ FinTech"></div>
-        <div class="box-content">
-          <h3 class="box-name">{{ 'PORTFOLIO.RINDEMAS.NAME' | translate }}</h3>
-          <p class="box-summary">{{ 'PORTFOLIO.RINDEMAS.SUMMARY' | translate }}</p>
-          <div class="box-tags-icons">
-            <i class="devicon-go-original-wordmark brand-go" title="Go"></i>
-            <i class="devicon-redis-plain brand-redis" title="Redis"></i>
-            <i class="devicon-elasticsearch-plain brand-elastic" title="Elasticsearch"></i>
-            <i class="devicon-apachekafka-original brand-kafka" title="Kafka"></i>
-            <i class="devicon-python-plain brand-python" title="Python"></i>
-          </div>
-          <a href="https://rindemas.quanticarch.com/dashboard" target="_blank" class="system-link">{{ 'PORTFOLIO.VIEW_SYSTEM' | translate }}</a>
-        </div>
-      </article>
-
-      <article class="project-box">
-        <div class="box-img-area"><img src="projects/talleresmecanicos.png" alt="Talleres ERP"></div>
-        <div class="box-content">
-          <h3 class="box-name">{{ 'PORTFOLIO.TALLERES.NAME' | translate }}</h3>
-          <p class="box-summary">{{ 'PORTFOLIO.TALLERES.SUMMARY' | translate }}</p>
-          <div class="box-tags-icons">
-            <i class="devicon-nextjs-plain brand-next" title="Next.js"></i>
-            <i class="devicon-nestjs-plain brand-nest" title="NestJS"></i>
-            <i class="devicon-postgresql-plain brand-pgsql" title="PostgreSQL"></i>
-            <i class="devicon-nginx-original brand-next" title="Nginx"></i>
-          </div>
-          <a href="https://talleresmecanicos.quanticarch.com/" target="_blank" class="system-link">{{ 'PORTFOLIO.VIEW_SYSTEM' | translate }}</a>
-        </div>
-      </article>
-
-      <article class="project-box">
-        <div class="box-img-area"><img src="projects/apexdrive.png" alt="ApexDrive"></div>
-        <div class="box-content">
-          <h3 class="box-name">{{ 'PORTFOLIO.APEXDRIVE.NAME' | translate }}</h3>
-          <p class="box-summary">{{ 'PORTFOLIO.APEXDRIVE.SUMMARY' | translate }}</p>
-          <div class="box-tags-icons">
-            <i class="devicon-kubernetes-plain brand-k8s" title="Kubernetes"></i>
-            <i class="devicon-docker-plain brand-docker" title="Docker"></i>
-            <i class="devicon-apachekafka-original brand-kafka" title="Kafka"></i>
-          </div>
-          <a href="#" class="system-link">{{ 'PORTFOLIO.VIEW_SYSTEM' | translate }}</a>
-        </div>
-      </article>
-
-      <article class="project-box">
-        <div class="box-img-area"><img src="projects/speeddelivery.png" alt="SpeedDelivery"></div>
-        <div class="box-content">
-          <h3 class="box-name">{{ 'PORTFOLIO.SPEEDDELIVERY.NAME' | translate }}</h3>
-          <p class="box-summary">{{ 'PORTFOLIO.SPEEDDELIVERY.SUMMARY' | translate }}</p>
-          <div class="box-tags-icons">
-            <i class="devicon-nestjs-plain brand-nest" title="NestJS"></i>
-            <i class="devicon-redis-plain brand-redis" title="Redis"></i>
-            <i class="devicon-flutter-plain brand-flutter" title="Flutter"></i>
-          </div>
-          <a href="#" class="system-link">{{ 'PORTFOLIO.VIEW_SYSTEM' | translate }}</a>
-        </div>
+      <article class="card edu-card">
+        <h3 class="edu-title">{{ 'EDUCATION.CERTS_TITLE' | translate }}</h3>
+        <ul class="cert-list">
+          @for (cert of certifications; track cert.nameKey) {
+            <li>{{ cert.nameKey | translate }}</li>
+          }
+        </ul>
+        <p class="edu-period">{{ 'EDUCATION.ISSUER' | translate }}</p>
       </article>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="contact-section">
+  <!-- CONTACT -->
+  <section id="contact" class="section wrap">
+    <div class="section-head">
+      <h2 class="section-title">{{ 'CONTACT.TITLE' | translate }}</h2>
+      <span class="section-line" aria-hidden="true"></span>
+    </div>
+
     <div class="contact-grid">
       <div class="contact-info">
-        <h2 class="contact-title">{{ 'CONTACT.TITLE' | translate }}</h2>
-        <p style="margin-bottom: 2.5rem; color: var(--color-on-surface-variant); font-size: 0.95rem;">
-          {{ 'CONTACT.DESCRIPTION' | translate }}
-        </p>
+        <p class="contact-desc">{{ 'CONTACT.DESCRIPTION' | translate }}</p>
+
         <div class="contact-list">
-          <div class="contact-item">
-            <span class="c-icon"><i class="devicon-google-plain brand-angular"></i></span>
-            <div class="c-text">
-              <strong (click)="copyEmail()" style="cursor: pointer;">{{ sentSuccess() ? ('CONTACT.COPIED' | translate) : 'josesojo2828@gmail.com' }}</strong>
-            </div>
+          <div class="contact-row">
+            <span class="contact-label">{{ 'CONTACT.EMAIL_LABEL' | translate }}</span>
+            <button type="button" class="contact-value copy-btn" (click)="copyEmail()" [title]="'CONTACT.COPY_HINT' | translate">
+              {{ emailCopied() ? ('CONTACT.COPIED' | translate) : email }}
+            </button>
           </div>
-          <div class="contact-item">
-            <span class="c-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
-            <div class="c-text">
-              <strong>+58 412 860 6734</strong>
-            </div>
+          <div class="contact-row">
+            <span class="contact-label">{{ 'CONTACT.PHONE_LABEL' | translate }}</span>
+            <a class="contact-value" [href]="phoneHref">{{ phoneDisplay }}</a>
           </div>
         </div>
-        <div style="display: flex; gap: 1rem; margin-top: 3rem;">
-          <a href="https://github.com/josesojo2828" target="_blank" class="theme-toggle" aria-label="GitHub"><i class="devicon-github-original"></i></a>
-          <a href="https://www.linkedin.com/in/jose-sojo-14899b380/" target="_blank" class="theme-toggle" aria-label="LinkedIn"><i class="devicon-linkedin-plain"></i></a>
+
+        <div class="socials">
+          <a class="social-btn" [href]="githubUrl" target="_blank" rel="noopener" [attr.aria-label]="'ARIA.GITHUB' | translate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.52-1.33-1.28-1.69-1.28-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.43-2.69 5.41-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"/>
+            </svg>
+          </a>
+          <a class="social-btn" [href]="linkedinUrl" target="_blank" rel="noopener" [attr.aria-label]="'ARIA.LINKEDIN' | translate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/>
+            </svg>
+          </a>
+          <a class="social-btn" [href]="whatsappUrl" target="_blank" rel="noopener" [attr.aria-label]="'ARIA.WHATSAPP' | translate">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.34-1.66c1.72.94 3.66 1.43 5.63 1.43h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42z"/>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <div class="contact-form-container">
-        <form (ngSubmit)="sendEmail($event)" class="contact-form">
-          <!-- STEP 1: IDENTITY -->
-          <div class="input-group">
-            <label>{{ 'CONTACT.FORM.NAME' | translate }}</label>
-            <input type="text" [value]="formData.name()" (input)="formData.name.set($any($event.target).value)" required>
-          </div>
-          <div class="input-group">
-            <label>{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
-            <input type="email" [value]="formData.email()" (input)="formData.email.set($any($event.target).value)" required>
-          </div>
+      <form class="card contact-form" (ngSubmit)="sendEmail($event)">
+        <div class="field">
+          <label for="name">{{ 'CONTACT.FORM.NAME' | translate }}</label>
+          <input
+            id="name"
+            type="text"
+            name="name"
+            [value]="formData.name()"
+            (input)="formData.name.set($any($event.target).value)"
+            [placeholder]="'CONTACT.FORM.PLACEHOLDER_NAME' | translate"
+            required>
+        </div>
+        <div class="field">
+          <label for="email">{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            [value]="formData.email()"
+            (input)="formData.email.set($any($event.target).value)"
+            [placeholder]="'CONTACT.FORM.PLACEHOLDER_EMAIL' | translate"
+            required>
+        </div>
+        <div class="field">
+          <label for="message">{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            [value]="formData.message()"
+            (input)="formData.message.set($any($event.target).value)"
+            [placeholder]="'CONTACT.FORM.PLACEHOLDER_MESSAGE' | translate"
+            required></textarea>
+        </div>
 
-          <!-- STEP 2: PROJECT TYPE -->
-          <div class="selection-group">
-            <label>{{ 'CONTACT.FORM.PROJECT_TYPE.LABEL' | translate }}</label>
-            <div class="pills-grid">
-              <button type="button" class="type-pill" 
-                [class.active]="formData.projectType() === 'SAAS'"
-                (click)="setProjectType('SAAS')">{{ 'CONTACT.FORM.PROJECT_TYPE.SAAS' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.projectType() === 'MOBILE'"
-                (click)="setProjectType('MOBILE')">{{ 'CONTACT.FORM.PROJECT_TYPE.MOBILE' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.projectType() === 'ECOMMERCE'"
-                (click)="setProjectType('ECOMMERCE')">{{ 'CONTACT.FORM.PROJECT_TYPE.ECOMMERCE' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.projectType() === 'FINTECH'"
-                (click)="setProjectType('FINTECH')">{{ 'CONTACT.FORM.PROJECT_TYPE.FINTECH' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.projectType() === 'INFRA'"
-                (click)="setProjectType('INFRA')">{{ 'CONTACT.FORM.PROJECT_TYPE.INFRA' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.projectType() === 'OTHER'"
-                (click)="setProjectType('OTHER')">{{ 'CONTACT.FORM.PROJECT_TYPE.OTHER' | translate }}</button>
-            </div>
-          </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="isSending()">
+          {{ (isSending() ? 'CONTACT.FORM.SENDING' : 'CONTACT.FORM.SUBMIT') | translate }}
+        </button>
 
-          <!-- STEP 3: BUDGET -->
-          <div class="selection-group">
-            <label>{{ 'CONTACT.FORM.BUDGET.LABEL' | translate }}</label>
-            <div class="pills-grid">
-              <button type="button" class="type-pill" 
-                [class.active]="formData.budget() === 'TIER1'"
-                (click)="setBudget('TIER1')">{{ 'CONTACT.FORM.BUDGET.TIER1' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.budget() === 'TIER2'"
-                (click)="setBudget('TIER2')">{{ 'CONTACT.FORM.BUDGET.TIER2' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.budget() === 'TIER3'"
-                (click)="setBudget('TIER3')">{{ 'CONTACT.FORM.BUDGET.TIER3' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.budget() === 'TIER4'"
-                (click)="setBudget('TIER4')">{{ 'CONTACT.FORM.BUDGET.TIER4' | translate }}</button>
-              <button type="button" class="type-pill" 
-                [class.active]="formData.budget() === 'TIER5'"
-                (click)="setBudget('TIER5')">{{ 'CONTACT.FORM.BUDGET.TIER5' | translate }}</button>
-            </div>
-          </div>
-
-          <!-- STEP 4: CHALLENGE -->
-          <div class="input-group">
-            <label>{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
-            <textarea rows="4" [value]="formData.message()" (input)="formData.message.set($any($event.target).value)" required></textarea>
-          </div>
-
-          <button type="submit" class="submit-btn" [disabled]="isSending()">
-            {{ isSending() ? ('CONTACT.FORM.SENDING' | translate) : ('CONTACT.FORM.SUBMIT' | translate) }}
-          </button>
-
-          @if (sentSuccess()) {
-            <p class="success-msg">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
-          }
-        </form>
-      </div>
+        @if (sentSuccess()) {
+          <p class="form-success" role="status">{{ 'CONTACT.FORM.SUCCESS' | translate }}</p>
+        }
+      </form>
     </div>
   </section>
 
-  <footer style="padding: 3rem 0; border-top: 1px solid var(--border-thin); color: var(--color-on-surface-variant); font-size: 10px; display: flex; justify-content: space-between;">
-    <span>{{ 'FOOTER.COPYRIGHT' | translate }}</span>
-    <span>{{ 'FOOTER.SUBTITLE' | translate }}</span>
+  <footer class="footer wrap">
+    <div class="footer-left">
+      <span class="brand-mark brand-mark-sm">JS</span>
+      <span>{{ 'FOOTER.COPYRIGHT' | translate }}</span>
+    </div>
+    <div class="footer-right">
+      <span>{{ 'FOOTER.ROLE' | translate }}</span>
+      <span class="footer-sep" aria-hidden="true">&middot;</span>
+      <span>{{ 'FOOTER.BUILT' | translate }}</span>
+    </div>
   </footer>
-
-  <a href="https://wa.me/584128606734" target="_blank" class="floating-wa-btn" [attr.aria-label]="'WA_ARIA' | translate">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
 </main>
+
+<a class="floating-wa" [href]="whatsappUrl" target="_blank" rel="noopener" [attr.aria-label]="'ARIA.WHATSAPP' | translate">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.26-.46-2.39-1.48-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.28-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.82 9.82 0 0 1 2.89 6.99c0 5.45-4.43 9.89-9.88 9.89m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L0 24l6.34-1.66c1.72.94 3.66 1.43 5.63 1.43h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.42z"/>
+  </svg>
+</a>

@@ -1,84 +1,137 @@
 {
   "NAV": {
-    "PROJECTS": "PROJECTS",
-    "SKILLS": "TECHNOLOGIES",
-    "CONTACT": "CONTACT",
-    "COLABORATE": "COLLABORATE"
+    "EXPERIENCE": "Experience",
+    "PROJECTS": "Projects",
+    "STACK": "Stack",
+    "CONTACT": "Contact",
+    "DOWNLOAD_CV": "Download CV",
+    "THEME": "Toggle theme",
+    "LANG": "Change language"
   },
   "HERO": {
-    "LABEL": "Software Architect",
-    "TITLE": "Solving for today,",
-    "TITLE_SPAN": "unstoppable tomorrow.",
-    "DESCRIPTION": "Specialist in distributed ecosystems, financial systems, and high traffic. I transform technical complexity into resilient infrastructures."
+    "AVAILABLE": "Open to remote roles",
+    "NAME": "Jose Sojo",
+    "ROLE": "Senior Full-Stack Developer",
+    "HEADLINE": "Computer Engineer with 4+ years building and operating production systems — from code to infrastructure.",
+    "CTA_CV": "Download CV",
+    "CTA_CONTACT": "Get in touch",
+    "FACT_EXP_LABEL": "Experience",
+    "FACT_EXP_VALUE": "4+ years",
+    "FACT_FOCUS_LABEL": "Focus",
+    "FACT_FOCUS_VALUE": "Full-Stack + DevOps",
+    "FACT_DEGREE_LABEL": "Education",
+    "FACT_DEGREE_VALUE": "Computer Engineer",
+    "FACT_LOCATION_LABEL": "Location",
+    "FACT_LOCATION_VALUE": "Venezuela · Remote"
   },
-  "SKILLS": {
-    "TITLE": "Technological Ecosystem",
-    "FRONTEND": "Front-end Engine",
-    "BACKEND": "Back-end & Systems",
-    "MOBILE": "Mobile Architecture",
-    "INFRA": "Cloud & Infrastructure"
+  "ABOUT": {
+    "TITLE": "Profile",
+    "P1": "Senior Full-Stack Developer focused on backend, data integration and infrastructure automation. I design and ship production applications with TypeScript, Nuxt/Vue, Node.js, Go and PostgreSQL on Cloud environments.",
+    "P2": "I come from the infrastructure side: I run Linux servers, orchestrate containers with Docker and Proxmox, and build CI/CD pipelines with GitLab and Jenkins. That lets me deliver complete systems, not just features.",
+    "P3": "Today I lead the platform team at Sistemas Tecnológicos Alcaraván and teach Programming II at UNERG."
   },
-  "PORTFOLIO": {
-    "TITLE": "Portfolio",
-    "VIEW_SYSTEM": "Launch System →",
-    "NUTRINGEST": {
-      "NAME": "Nutringest SaaS",
-      "SUMMARY": "Scalable Multi-tenant architecture for massive clinical management and data compliance."
-    },
-    "CRONOBYKE": {
-      "NAME": "CronoByke IoT",
-      "SUMMARY": "Real-time IoT telemetry processing engine with low-latency synchronization."
-    },
-    "RINDEMAS": {
-      "NAME": "Rinde+ FinTech",
-      "SUMMARY": "Distributed ecosystem for intelligent cost centralization and financial analytics."
-    },
-    "TALLERES": {
-      "NAME": "Talleres ERP",
-      "SUMMARY": "Operational optimization platform for massive automation of industrial workflows."
-    },
-    "APEXDRIVE": {
-      "NAME": "ApexDrive Logistics",
-      "SUMMARY": "Event-driven logistics Service Mesh over Kubernetes and AWS Kinesis streams."
-    },
-    "SPEEDDELIVERY": {
-      "NAME": "SpeedDelivery SaaS",
-      "SUMMARY": "Low-latency hyperlocal dispatcher with real-time geolocation."
+  "EXPERIENCE": {
+    "TITLE": "Experience",
+    "PRESENT": "Present",
+    "JOBS": {
+      "LEAD": {
+        "ROLE": "Project Lead & Senior Full-Stack Developer",
+        "NOTE": "Promoted to Project Lead (Jul. 2026)",
+        "B1": "Leading the platform team: servers, VPS, monitoring and operational control.",
+        "B2": "Design and architecture of complex full-stack applications with TypeScript on Supabase / PostgreSQL (RLS, triggers, migrations).",
+        "B3": "CI/CD pipelines (GitLab, Jenkins), Docker orchestration and deployments on Google Cloud Platform."
+      },
+      "ANALYST": {
+        "ROLE": "Network & Platform Analyst",
+        "B1": "Linux server administration (Ubuntu/Debian), resource monitoring and internal network management.",
+        "B2": "Virtualization with Proxmox / KVM and Docker container orchestration.",
+        "B3": "Observability with Grafana, Prometheus and node-exporter; automated database backups.",
+        "B4": "Bash, Python and Go scripts to automate server and platform operations.",
+        "HIGHLIGHT": "Impact: PBS (Proxmox Backup Server) rollout that cut backups from 8–12h down to 4–5h."
+      },
+      "TEACHER": {
+        "ROLE": "University Lecturer — Programming II",
+        "B1": "Teaching Programming II in Computer Engineering: algorithms and software development.",
+        "B2": "Academic project tutoring and section grading and records management."
+      },
+      "SIBCI": {
+        "ROLE": "Technical Support & Network Infrastructure",
+        "B1": "Local network (LAN/VLAN) management and support, switch administration and network services.",
+        "B2": "Preventive and corrective hardware maintenance; Level 2 infrastructure incident resolution."
+      },
+      "FREELANCE": {
+        "ROLE": "Freelance Developer & DevOps",
+        "B1": "ERP/CRM systems and full-stack web solutions with Nuxt 3 / Vue 3, TypeScript, Supabase and PostgreSQL on GCP and AWS.",
+        "B2": "Docker containerization, infrastructure automation and data security with RLS policies.",
+        "B3": "Deployments on Nginx servers and GCP Cloud Run. Projects: Nutringest (SaaS) and Socius VE (ERP/CRM)."
+      }
     }
   },
+  "PROJECTS": {
+    "TITLE": "Projects",
+    "SUBTITLE": "Two products I designed and shipped end to end.",
+    "VIEW": "View system",
+    "PRIVATE": "Private system",
+    "KIND": {
+      "OWN": "Own project",
+      "FREELANCE": "Freelance project"
+    },
+    "NUTRINGEST": {
+      "SUMMARY": "SaaS platform for nutritionists: clinical management, patient records and meal plans. Supabase/PostgreSQL with RLS, migrations and DevOps culture."
+    },
+    "SOCIUS": {
+      "SUMMARY": "Full ERP/CRM for businesses: inventory, invoicing, and accounts receivable/payable. Built with Nuxt 3 and Supabase, deployed with Docker and CI/CD."
+    }
+  },
+  "STACK": {
+    "TITLE": "Technical stack",
+    "SUBTITLE": "The tools I use to take a system from idea to production.",
+    "FRONTEND": "Frontend",
+    "BACKEND": "Backend & Data",
+    "MOBILE": "Mobile",
+    "DEVOPS": "Cloud & DevOps",
+    "ARCH": "ERP & Architecture"
+  },
+  "EDUCATION": {
+    "TITLE": "Education & Certifications",
+    "DEGREE": "Computer Engineering",
+    "UNIVERSITY": "Universidad Nacional Experimental de los Llanos Centrales «Rómulo Gallegos» (UNERG)",
+    "PERIOD": "2019 — 2025",
+    "CERTS_TITLE": "AWS Certifications",
+    "CERT_CCP": "AWS Certified Cloud Practitioner Essentials",
+    "CERT_DEVOPS": "Getting Started with DevOps on AWS",
+    "CERT_QUEST": "AWS Cloud Quest: Cloud Practitioner",
+    "ISSUER": "AWS Training & Certification · Dec. 2025",
+    "LANG_TITLE": "Languages",
+    "LANG_VALUE": "Spanish (native) · English (technical)"
+  },
   "CONTACT": {
-    "TITLE": "Let's build together.",
-    "DESCRIPTION": "Let's talk about how to transform your technical challenges into a scalable infrastructure.",
-    "COPIED": "COPIED!",
+    "TITLE": "Let's talk",
+    "DESCRIPTION": "Looking for a Senior Full-Stack developer for your team? Write to me and I'll get back to you.",
+    "EMAIL_LABEL": "Email",
+    "PHONE_LABEL": "Phone / WhatsApp",
+    "COPY_HINT": "Click to copy",
+    "COPIED": "Copied!",
     "FORM": {
       "NAME": "Name",
       "EMAIL": "Email",
-      "MESSAGE": "Tell me about your technical challenge",
-      "PROJECT_TYPE": {
-        "LABEL": "What project are you working on?",
-        "SAAS": "SaaS / Platform",
-        "MOBILE": "Mobile App",
-        "ECOMMERCE": "E-commerce",
-        "FINTECH": "FinTech / Web3",
-        "INFRA": "Infra / DevOps",
-        "OTHER": "Corporate / Other"
-      },
-      "BUDGET": {
-        "LABEL": "Estimated investment range",
-        "TIER1": "Under $3k",
-        "TIER2": "$3k - $10k",
-        "TIER3": "$10k - $25k",
-        "TIER4": "Over $25k",
-        "TIER5": "Partnership"
-      },
-      "SUBMIT": "SUBMIT PROPOSAL",
-      "SENDING": "SENDING...",
-      "SUCCESS": "Message sent successfully. I will get in touch soon."
+      "MESSAGE": "Message",
+      "PLACEHOLDER_NAME": "Your name",
+      "PLACEHOLDER_EMAIL": "you@email.com",
+      "PLACEHOLDER_MESSAGE": "Tell me about the role or project you have in mind...",
+      "SUBMIT": "Send message",
+      "SENDING": "Sending...",
+      "SUCCESS": "Message sent. I'll reply soon."
     }
   },
   "FOOTER": {
-    "COPYRIGHT": "© 2024 JOSE SOJO.",
-    "SUBTITLE": "SOFTWARE ARCHITECT PORTFOLIO."
+    "COPYRIGHT": "© 2026 Jose Sojo",
+    "ROLE": "Senior Full-Stack Developer",
+    "BUILT": "Built with Angular"
   },
-  "WA_ARIA": "Chat on WhatsApp"
+  "ARIA": {
+    "WHATSAPP": "Chat on WhatsApp",
+    "GITHUB": "GitHub profile",
+    "LINKEDIN": "LinkedIn profile"
+  }
 }

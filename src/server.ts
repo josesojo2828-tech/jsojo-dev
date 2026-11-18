@@ -21,7 +21,7 @@ app.use(express.json());
  * Reads bot token and chat id from ENVIRONMENT VARIABLES (Docker)
  */
 app.post('/api/contact', async (req, res) => {
-  const { name, email, message, projectType, budget } = req.body;
+  const { name, email, message } = req.body ?? {};
   const botToken = process.env['TELEGRAM_BOT_TOKEN'];
   const chatId = process.env['TELEGRAM_CHAT_ID'];
 
@@ -30,38 +30,19 @@ app.post('/api/contact', async (req, res) => {
     return res.status(500).json({ error: 'Configuración de servidor incompleta.' });
   }
 
-  // Simple mapping for human-readable labels in Telegram
-  const typeMap: Record<string, string> = {
-    'SAAS': 'SaaS / Plataforma',
-    'MOBILE': 'App Mobile',
-    'ECOMMERCE': 'E-commerce',
-    'FINTECH': 'FinTech / Web3',
-    'INFRA': 'Infra / DevOps',
-    'OTHER': 'Corporativo / Otro'
-  };
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'Faltan campos requeridos.' });
+  }
 
-  const budgetMap: Record<string, string> = {
-    'TIER1': 'Bajo $3k',
-    'TIER2': '$3k - $10k',
-    'TIER3': '$10k - $25k',
-    'TIER4': 'Sobre $25k',
-    'TIER5': 'Sociedad / Partnership'
-  };
-
-  const labelType = typeMap[projectType] || projectType;
-  const labelBudget = budgetMap[budget] || budget;
-
-  const text = `
-🆕 *PROPUESTA DE PROYECTO RECIBIDA*
-
-👤 *Cliente:* ${name}
-📧 *Email:* ${email}
-🏗️ *Tipo:* ${labelType}
-💰 *Inversión:* ${labelBudget}
-
-💬 *Desafío:* 
-${message}
-  `;
+  const text = [
+    '🆕 NUEVO CONTACTO — PORTFOLIO',
+    '',
+    `👤 Nombre: ${name}`,
+    `📧 Email: ${email}`,
+    '',
+    '💬 Mensaje:',
+    `${message}`
+  ].join('\n');
 
   const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage`;
 
@@ -71,18 +52,17 @@ ${message}
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         chat_id: chatId,
-        text: text,
-        parse_mode: 'Markdown'
+        text: text
       })
     });
 
     if (response.ok) {
       return res.status(200).json({ success: true });
-    } else {
-      const errData = await response.json();
-      console.error('❌ Telegram API error:', errData);
-      return res.status(500).json({ error: 'Error al enviar a Telegram.' });
     }
+
+    const errData = await response.json();
+    console.error('❌ Telegram API error:', errData);
+    return res.status(500).json({ error: 'Error al enviar a Telegram.' });
   } catch (error) {
     console.error('❌ Network error sending to Telegram:', error);
     return res.status(500).json({ error: 'Fallo de conexión en el servidor.' });
