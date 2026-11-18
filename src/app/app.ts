@@ -127,14 +127,15 @@ export class App implements OnInit {
       kindKey: 'PROJECTS.KIND.OWN',
       summaryKey: 'PROJECTS.NUTRINGEST.SUMMARY',
       url: 'https://nutringest.quanticarch.com/',
-      image: 'projects/nutringest.png',
+      image: 'projects/nutringest.webp',
       tags: ['Nuxt 3', 'Vue 3', 'TypeScript', 'Supabase', 'PostgreSQL', 'Docker']
     },
     {
       name: 'Socius VE',
       kindKey: 'PROJECTS.KIND.FREELANCE',
       summaryKey: 'PROJECTS.SOCIUS.SUMMARY',
-      image: 'projects/socius.png',
+      url: 'https://sociusvex.quanticarch.com',
+      image: 'projects/socius.webp',
       tags: ['Nuxt 3', 'Vue 3', 'Supabase', 'PostgreSQL', 'Docker', 'CI/CD']
     }
   ];
